@@ -12,7 +12,7 @@ def get_vword(val_words):
     while '-' in word or ' ' in word:
         word = random.choice(val_words)
 
-    return word
+    return word.upper()
 
 
 def hang():
@@ -39,12 +39,13 @@ def hang():
         # ------------ indicates a user has guessed a letter in the word correctly and removes the letter from the word
             if user_guess in w_letters:
                 w_letters.remove(user_guess)
+                print('')
 
         elif user_guess in used_letters:
             print('You have already guessed that character, try again.')
 
         else:
-            print('Invalid Character')
+            print('Invalid character, try again.')
 
     # --------- when len(w_letters) == 0
 
