@@ -26,6 +26,12 @@ def hang():
     # ------------ Condition that places the users guess among the other previously guessed letters
     if user_guess in alphabet - used_letters:
         used_letters.add(user_guess)
-    # ------------ Condition that indicates a user has guessed a letter in the word correctly
+    # ------------ indicates a user has guessed a letter in the word correctly and removes the letter from the word
         if user_guess in w_letters:
             w_letters.remove(user_guess)
+
+    elif user_guess in used_letters:
+        print('You have already guessed that character, try again.')
+
+    else:
+        print('Invalid Character')
