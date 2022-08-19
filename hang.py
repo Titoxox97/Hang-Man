@@ -2,6 +2,7 @@ import random
 import string
 
 from valid_words import val_words
+from hang_visual import hang_visual_dict
 
 
 # -------------Function that will randomly choose a word from the list
@@ -21,6 +22,8 @@ def hang():
     alphabet = set(string.ascii_uppercase)
     used_letters = set()  # ------- letters guessed
 
+    lives = 10
+
     # -------------- User Input
 
     while len(w_letters) > 0:
@@ -30,6 +33,7 @@ def hang():
 
         # ------- what current word is (ex: W - R D)
         word_ls = [letter if letter in used_letters else '-' for letter in word]
+
         print('Current word: ', ' '.join(word_ls))
 
         user_guess = input('Guess a letter: ').upper()
