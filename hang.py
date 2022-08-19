@@ -46,9 +46,12 @@ def hang():
                 w_letters.remove(user_guess)
                 print('')
 
+            else:
+                # ----------- Subtracts a Life When an Incorrect Guess is Made
+                lives = lives - 1
+                print('The letter,', user_guess, 'is not in this word')
+
         elif user_guess in used_letters:
-            # ----------- Subtracts a Life When an Incorrect Guess is Made
-            lives = lives - 1
             print('You have already guessed that character, try again.')
 
         else:
