@@ -26,32 +26,41 @@ def hang():
 
     # -------------- User Input
 
-    while len(w_letters) > 0:
+    while len(w_letters) > 0 and lives > 0:
         # -------- Letters guessed
         # -------- ' '.join(['a', 'b', 'c']) --> 'a b c'
-        print('You have used the following letters: ', ' '.join(used_letters))
+        print('You have', lives, 'lives left, \nYou have used the following letters: ', ' '.join(used_letters))
 
         # ------- what current word is (ex: W - R D)
         word_ls = [letter if letter in used_letters else '-' for letter in word]
-
+        print(hang_visual_dict[lives])
         print('Current word: ', ' '.join(word_ls))
 
         user_guess = input('Guess a letter: ').upper()
         # ------------ Condition that places the users guess among the other previously guessed letters
         if user_guess in alphabet - used_letters:
             used_letters.add(user_guess)
-        # ------------ indicates a user has guessed a letter in the word correctly and removes the letter from the word
+
+    # ------------ indicates a user has guessed a letter in the word correctly and removes the letter from the word
             if user_guess in w_letters:
                 w_letters.remove(user_guess)
                 print('')
 
         elif user_guess in used_letters:
+            # ----------- Subtracts a Life When an Incorrect Guess is Made
+            lives = lives - 1
             print('You have already guessed that character, try again.')
 
         else:
             print('Invalid character, try again.')
 
-    # --------- when len(w_letters) == 0
+    # --------- When the word has been guessed or lives == 0
+    if lives == 0:
+        print(hang_visual_dict[lives])
+        print("Game Over, you died. The correct word was", word)
+    else:
+        print('Congratulations! The word was', word, '🐙')
 
 
-hang()
+if __name__ == '__main__':
+    hang()
