@@ -27,8 +27,7 @@ def hang():
     # -------------- User Input
 
     while len(w_letters) > 0 and lives > 0:
-        # -------- Letters guessed
-        # -------- ' '.join(['a', 'b', 'c']) --> 'a b c'
+        # -------- Letters guessed and Lives left
         print('You have', lives, 'lives left, \nYou have used the following letters: ', ' '.join(used_letters))
 
         # ------- what current word is (ex: W - R D)
