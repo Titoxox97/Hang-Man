@@ -22,7 +22,7 @@ def hang():
     alphabet = set(string.ascii_uppercase)
     used_letters = set()  # ------- letters guessed
 
-    lives = 10
+    lives = 7
 
     # -------------- User Input
 
